@@ -32,7 +32,7 @@ process.Timing = cms.Service("Timing",
                              )
 
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10) )
 
 process.options = cms.untracked.PSet(
         numberOfThreads = cms.untracked.uint32(2),
@@ -43,7 +43,7 @@ process.options.numberOfConcurrentLuminosityBlocks = 1
 
 process.load("SimGeneral.HepPDTESSource.pythiapdt_cfi")
 process.printTree = cms.EDAnalyzer("ParticleListDrawer",
-  maxEventsToPrint = cms.untracked.int32(1),
+  maxEventsToPrint = cms.untracked.int32(10),
   printVertex = cms.untracked.bool(False),
   printOnlyHardInteraction = cms.untracked.bool(False), # Print only status=3 particles. This will not work for Pythia8, which does not have any such particles.
   src = cms.InputTag("genParticles")
@@ -55,9 +55,9 @@ myfilelist = cms.untracked.vstring(
 #'/store/mc/Run3Winter23MiniAOD/VBFHto2C_M-125_TuneCP5_13p6TeV_powheg-pythia8/MINIAODSIM/GTv3Digi_GTv3_MiniGTv3_126X_mcRun3_2023_forPU65_v3-v2/2810000/11d4a49f-0565-4dad-a0f0-b0d287889dcc.root',
 #'/store/mc/Run3Summer23MiniAODv4/Zto2Q-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/MINIAODSIM/130X_mcRun3_2023_realistic_v14-v1/30000/011d1978-b670-4faa-b776-37783cc8f7f7.root',
 #'/store/mc/Run3Summer23MiniAODv4/Zto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/MINIAODSIM/130X_mcRun3_2023_realistic_v14-v3/2810000/001e44af-bed4-4ffa-aca0-e7a0371e241f.root',
+#'/store/mc/Run3Summer23MiniAODv4/VBFHto2C_M-125_TuneCP5_13p6TeV_powheg-pythia8/MINIAODSIM/130X_mcRun3_2023_realistic_v14-v3/2550000/05cafea2-5726-42b5-aaea-432421ebcb8b.root',
 #'/store/mc/Run3Summer23MiniAODv4/VBFHto2C_M-125_TuneCP5_13p6TeV_powheg-pythia8/MINIAODSIM/130X_mcRun3_2023_realistic_v14-v3/2550000/05cafea2-5726-42b5-aaea-432421ebcb8b.root'
-'file:/afs/cern.ch/work/a/azaza/MC_production/CMSSW_13_0_13/src/Run3Summer23_EWKZjets_step2.root'
-
+'/store/user/lgeneros/VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3/130X_mcRun3_2023_realistic_v15_MINIAODSIM/250304_084752/0000/Run3Summer23_EWKZjets_step2_123.root'
 )
 
 
@@ -74,11 +74,13 @@ process.TFileService = cms.Service("TFileService",
 # jet energy corrections
 
 import os
-from CondCore.DBCommon.CondDBSetup_cfi import *
+#from CondCore.DBCommon.CondDBSetup_cfi import *
+from CondCore.CondDB.CondDB_cfi  import *
+"""lisaMod
 process.jec = cms.ESSource("PoolDBESSource",
-                           CondDBSetup,
+                           #CondDBSetup,
                            #for execution in local
-                           connect = cms.string("sqlite_file:/afs/cern.ch/work/a/azaza/HccAna/CMSSW_13_0_13/src/Hcc/HccAna/python/Summer23Prompt23_V1_MC.db"),
+                           CondDB.clone(connect = cms.string("sqlite_file:/afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/Summer23Prompt23_V1_MC.db")),
                            #for crab
                            #connect = cms.string("sqlite_file:src/Hcc/HccAna/python/Summer23Prompt23_V1_MC.db"),
                            toGet =  cms.VPSet(
@@ -90,7 +92,7 @@ process.jec = cms.ESSource("PoolDBESSource",
               )
 )
 process.es_prefer_jec = cms.ESPrefer('PoolDBESSource', 'jec')
-
+"""
 from PhysicsTools.PatAlgos.tools.jetTools import updateJetCollection
 
 updateJetCollection(
@@ -102,12 +104,14 @@ updateJetCollection(
 
 ## la collezione di jet con le correzioni applicate si chiama "updatedPatJetsUpdatedJEC"
 
-process.jecSequence = cms.Sequence(process.patJetCorrFactorsUpdatedJEC * process.updatedPatJetsUpdatedJEC) 
+#process.jecSequence = cms.Sequence(process.patJetCorrFactorsUpdatedJEC * process.updatedPatJetsUpdatedJEC) #lisamod
 
+""" #lisamod
 #read JER-SF from a db file
 from CondCore.DBCommon.CondDBSetup_cfi import *
 process.jer = cms.ESSource("PoolDBESSource",
-        CondDBSetup,
+        #CondDBSetup,
+        CondDB.clone(connect = cms.string('sqlite:Summer23Prompt23_RunCv1234_JRV1_MC.db')),
         toGet = cms.VPSet(
             # Resolution
             cms.PSet(
@@ -123,17 +127,19 @@ process.jer = cms.ESSource("PoolDBESSource",
                 label  = cms.untracked.string('AK4PFPuppi')
                 ),
             ),
-        connect = cms.string('sqlite:Summer23Prompt23_RunCv1234_JRV1_MC.db')
+        
         #for crab
         #connect = cms.string('sqlite:src/Hcc/HccAna/python/Summer23Prompt23_RunCv1234_JRV1_MC.db')
         
         )
 
 process.es_prefer_jer = cms.ESPrefer('PoolDBESSource', 'jer')
+"""
 
 #smearing the jet resolution
 process.slimmedJetsSmeared = cms.EDProducer('SmearedPATJetProducer',
-       src = cms.InputTag('updatedPatJetsUpdatedJEC'),
+       #src = cms.InputTag('updatedPatJetsUpdatedJEC'),
+       src = cms.InputTag('slimmedJetsPuppi'), #LisaMod
        enabled = cms.bool(True),
        rho = cms.InputTag("fixedGridRhoFastjetAll"),
        algo = cms.string('AK4PFPuppi'),
@@ -202,14 +208,16 @@ process.updatedPatJetsPileupJetID.userData.userFloats.src = ['pileupJetIdUpdated
 process.load('RecoJets.JetProducers.QGTagger_cfi')
 #process.QGTagger.srcJets=cms.InputTag("selectedUpdatedPatJetsPileupJetID")
 #process.QGTagger.srcJets=cms.InputTag("updatedPatJetsPileupJetID")
-process.QGTagger.srcJets=cms.InputTag("updatedPatJetsUpdatedJEC")
+#process.QGTagger.srcJets=cms.InputTag("updatedPatJetsUpdatedJEC")
+process.QGTagger.srcJets=cms.InputTag("slimmedJetsPuppi")#lisaMod
 process.QGTagger.srcVertexCollection=cms.InputTag("offlineSlimmedPrimaryVertices")
 
 updateJetCollection(
    process,
    labelName = 'QGT',
    #jetSource = cms.InputTag('updatedPatJetsPileupJetID'),
-   jetSource = cms.InputTag('updatedPatJetsUpdatedJEC'),
+   #jetSource = cms.InputTag('updatedPatJetsUpdatedJEC'),
+   jetSource = cms.InputTag("slimmedJetsPuppi"), #lisaMod
    #jetSource = cms.InputTag('slimmedJetsSmeared'),
 )
 process.updatedPatJetsQGT.userData.userFloats.src = ['QGTagger:qgLikelihood']
@@ -251,8 +259,8 @@ process.Ana = cms.EDAnalyzer('HccAna',
 			                  AK8PuppiJetSrc       = cms.untracked.InputTag("slimmedJetsAK8"),
                               #hltPFJetForBtagSrc  = cms.InputTag("hltPFJetForBtag", "", "HLT"),
                               #hltAK4PFJetsCorrectedSrc  = cms.InputTag("hltAK4PFJetsCorrected", "", "HLT"),
-                              hltAK4CaloJetsCorrectedSrc  = cms.InputTag("hltAK4CaloJetsCorrectedIDPassed", "", "HLT"),
-                              hltAK4PFJetsCorrectedSrc  = cms.InputTag("hltAK4PFJetsLooseIDCorrected", "", "HLT"),
+                              #hltAK4CaloJetsCorrectedSrc  = cms.InputTag("hltAK4CaloJetsCorrectedIDPassed", "", "HLT"),
+                              #hltAK4PFJetsCorrectedSrc  = cms.InputTag("hltAK4PFJetsLooseIDCorrected", "", "HLT"),
                               #pfJetTagCollectionParticleNetprobcSrc = cms.InputTag("hltParticleNetONNXJetTags","probc","HLT"),
                               #pfJetTagCollectionParticleNetprobbSrc = cms.InputTag("hltParticleNetONNXJetTags","probb","HLT"),
                               #pfJetTagCollectionParticleNetprobudsSrc = cms.InputTag("hltParticleNetONNXJetTags","probuds","HLT"),
@@ -333,14 +341,14 @@ process.Ana = cms.EDAnalyzer('HccAna',
                               #for crab 
                               #JECUncFileAK4Src = cms.string("src/Hcc/HccAna/python/Summer23Prompt23_V1_MC_UncertaintySources_AK4PFPuppi.txt"),
                               #for execution in local 
-                              JECUncFileAK4Src = cms.string("/afs/cern.ch/work/a/azaza/HccAna/CMSSW_13_0_13/src/Hcc/HccAna/python/Summer23Prompt23_V1_MC_UncertaintySources_AK4PFPuppi.txt"),
-payload = cms.string("AK4PFPuppi"),
+                              JECUncFileAK4Src = cms.string("/afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/Summer23Prompt23_V1_MC_UncertaintySources_AK4PFPuppi.txt"),
+                              payload = cms.string("AK4PFPuppi"),
 
 
                              )
 
 
-process.p = cms.Path(process.jecSequence* 
+process.p = cms.Path(#process.jecSequence* #lisamod
                      #process.slimmedJetsSmeared*  
                      #process.pileupJetIdUpdated*  --uncomment--
                      #process.updatedPatJetsPileupJetID*  --uncomment--
@@ -350,6 +358,7 @@ process.p = cms.Path(process.jecSequence*
                      process.QGTagger*
                      process.updatedPatJetsQGT*
                      process.unpackedPatTrigger* 
+                     process.printTree*
                      process.Ana
                      )
 

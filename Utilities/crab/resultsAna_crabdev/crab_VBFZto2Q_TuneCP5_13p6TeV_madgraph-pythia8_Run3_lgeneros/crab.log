@@ -1,0 +1,257 @@
+ ##################################################################### 
+ # WARNING: the module CondCore.DBCommon.CondDBSetup is deprecated.  # 
+ # Please import CondCore.CondDB.CondDB_cfi                          # 
+ ##################################################################### 
+DEBUG 2025-02-20 14:24:56.728 UTC: 	 CRAB Client version: v3.241125
+DEBUG 2025-02-20 14:24:56.728 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.32.1.el8_10.x86_64 #1 SMP Mon Dec 2 06:32:20 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2025-02-20 14:24:56.728 UTC: 	 Not using Singularity
+DEBUG 2025-02-20 14:24:56.728 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2025-02-20 14:24:56.728 UTC: 	 Executing command: 'submit'
+DEBUG 2025-02-20 14:24:56.728 UTC: 	 Found CRAB cache file /afs/cern.ch/user/l/lgeneros/.crab3
+INFO 2025-02-20 14:24:56.752 UTC: 	 Will use CRAB configuration file resultsAna_crabdev/cfg/crabConfig_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros.py
+DEBUG 2025-02-20 14:24:56.752 UTC: 	 Loading CRAB configuration file.
+DEBUG 2025-02-20 14:24:56.758 UTC: 	 Will use CRAB plugin ANALYSIS (i.e. will run an analysis job type).
+DEBUG 2025-02-20 14:24:56.779 UTC: 	 Checking credentials
+DEBUG 2025-02-20 14:24:56.779 UTC: 	 Found proxy file /tmp/x509up_u163811
+DEBUG 2025-02-20 14:24:56.779 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2025-02-20 14:24:56.779 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u163811
+DEBUG 2025-02-20 14:24:57.163 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2025-02-20 14:24:57.163 UTC: 	 Getting proxy life time left
+DEBUG 2025-02-20 14:24:57.163 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u163811
+DEBUG 2025-02-20 14:24:57.545 UTC: 	 output : 43044
+43044
+
+ error: 
+ retcode : 0
+DEBUG 2025-02-20 14:24:57.545 UTC: 	 Proxy valid for 11:57:24 hours
+DEBUG 2025-02-20 14:24:57.545 UTC: 	 Encoded data for curl request: subresource=delegatedn
+DEBUG 2025-02-20 14:24:57.587 UTC: 	 Registering user credentials on myproxy for /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+DEBUG 2025-02-20 14:24:57.587 UTC: 	 Executing command :
+ voms-proxy-info --identity --file /tmp/x509up_u163811
+DEBUG 2025-02-20 14:24:57.959 UTC: 	 output : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=lgeneros/CN=870655/CN=Lisa Generoso
+
+ error: 
+ retcode : 0
+DEBUG 2025-02-20 14:24:57.959 UTC: 	 Getting myproxy life time left for 9c44db66782fefd347de87081c6798c4ef073578
+DEBUG 2025-02-20 14:24:57.959 UTC: 	 Executing command :
+ myproxy-info -s myproxy.cern.ch -l 9c44db66782fefd347de87081c6798c4ef073578
+DEBUG 2025-02-20 14:24:58.260 UTC: 	 output : username: 9c44db66782fefd347de87081c6798c4ef073578
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=lgeneros/CN=870655/CN=Lisa Generoso
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  timeleft: 457:41:43  (19.1 days)
+
+ error: 
+ retcode : 0
+DEBUG 2025-02-20 14:24:58.260 UTC: 	 Myproxy is valid: 1647660
+DEBUG 2025-02-20 14:24:58.260 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: 9c44db66782fefd347de87081c6798c4ef073578  - validity: 19 days, 1:41:00
+DEBUG 2025-02-20 14:24:58.260 UTC: 	 Command use: submit
+DEBUG 2025-02-20 14:24:58.260 UTC: 	 Options use: ['-c', 'resultsAna_crabdev/cfg/crabConfig_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros.py']
+DEBUG 2025-02-20 14:24:58.260 UTC: 	 Encoded data for curl request: subresource=version
+DEBUG 2025-02-20 14:24:58.299 UTC: 	 CRABClient version: v3.241125
+DEBUG 2025-02-20 14:24:58.299 UTC: 	 Instance is prod
+DEBUG 2025-02-20 14:24:58.299 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2025-02-20 14:24:58.299 UTC: 	 Command api workflow
+DEBUG 2025-02-20 14:24:58.299 UTC: 	 Started submission
+DEBUG 2025-02-20 14:24:58.299 UTC: 	 Working on /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros
+DEBUG 2025-02-20 14:24:58.299 UTC: 	 Encoded data for curl request: subresource=backendurls
+DEBUG 2025-02-20 14:24:58.364 UTC: 	 Loading required information from the environment
+DEBUG 2025-02-20 14:24:58.364 UTC: 	 Found CMSSW_13_0_13 for el8_amd64_gcc11 with base /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13
+DEBUG 2025-02-20 14:24:58.364 UTC: 	 Loading required information from the environment
+DEBUG 2025-02-20 14:24:58.364 UTC: 	 Found CMSSW_13_0_13 for el8_amd64_gcc11 with base /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13
+DEBUG 2025-02-20 14:24:58.364 UTC: 	 UNIQUE NAME: tarUUID 4f7a81a3-96f8-4992-9e65-db22ece56b7d 
+DEBUG 2025-02-20 14:24:58.364 UTC: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferOutputs = True
+config.General.requestName = 'VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros'
+config.General.transferLogs = True
+config.General.workArea = 'resultsAna_crabdev/'
+config.section_('JobType')
+config.JobType.inputFiles = ['/afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/Summer23Prompt23_V1_MC.db', '/afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/Summer23Prompt23_RunCv1234_JRV1_MC.db']
+config.JobType.psetName = '/afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/templateMC_QCDZqq_Summer23_JECdB.py'
+config.JobType.pluginName = 'Analysis'
+config.JobType.numCores = 2
+config.JobType.allowUndistributedCMSSW = True
+config.section_('Data')
+config.Data.splitting = 'FileBased'
+config.Data.inputDataset = '/VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3/lgeneros-130X_mcRun3_2022_realistic_v15_MINIAODSIM-7001f3c84dd6738fff9549020f956887/USER'
+config.Data.allowNonValidInputDataset = True
+config.Data.unitsPerJob = 3
+config.Data.inputDBS = 'phys03'
+config.Data.outputDatasetTag = '130X_mcRun3_2023_realistic_v14_tuple'
+config.Data.publication = True
+config.section_('Site')
+config.Site.storageSite = 'T2_IT_Bari'
+config.Site.ignoreGlobalBlacklist = True
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2025-02-20 14:24:58.364 UTC: 	 self.config.JobType.psetName: /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/templateMC_QCDZqq_Summer23_JECdB.py
+INFO 2025-02-20 14:24:58.364 UTC: 	 Importing CMSSW configuration /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/templateMC_QCDZqq_Summer23_JECdB.py
+INFO 2025-02-20 14:25:00.076 UTC: 	 Finished importing CMSSW configuration /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/templateMC_QCDZqq_Summer23_JECdB.py
+INFO 2025-02-20 14:25:00.076 UTC: 	 You are requesting more than 1 core per job. Please make sure that your multi-threaded code is thread-safe and CPU-efficient, and request the correct amount of memory since the default 'maxMemoryMB' value is meant for single core jobs.
+DEBUG 2025-02-20 14:25:00.076 UTC: 	 Writing CMSSW configuration to /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros/inputs/PSet.py
+DEBUG 2025-02-20 14:25:00.166 UTC: 	 The following EDM output files will be collected: []
+DEBUG 2025-02-20 14:25:00.166 UTC: 	 The following TFile output files will be collected: ['out_MC_Summer23_JECs.root']
+DEBUG 2025-02-20 14:25:00.166 UTC: 	 The following user output files (not listed as PoolOuputModule or TFileService in the CMSSW PSet) will be collected: 
+DEBUG 2025-02-20 14:25:00.166 UTC: 	 Loading required information from the environment
+DEBUG 2025-02-20 14:25:00.166 UTC: 	 Found CMSSW_13_0_13 for el8_amd64_gcc11 with base /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13
+DEBUG 2025-02-20 14:25:00.166 UTC: 	 Making tarball in /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros/inputs/4f7a81a3-96f8-4992-9e65-db22ece56b7ddefault.tgz
+DEBUG 2025-02-20 14:25:00.167 UTC: 	 Checking directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/bin
+DEBUG 2025-02-20 14:25:00.167 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/bin to tarball
+DEBUG 2025-02-20 14:25:00.169 UTC: 	 Checking directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/python
+DEBUG 2025-02-20 14:25:00.169 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/python to tarball
+DEBUG 2025-02-20 14:25:00.209 UTC: 	 Checking directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/cfipython
+DEBUG 2025-02-20 14:25:00.209 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/cfipython to tarball
+DEBUG 2025-02-20 14:25:00.219 UTC: 	 Checking directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/lib
+DEBUG 2025-02-20 14:25:00.219 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/lib to tarball
+DEBUG 2025-02-20 14:25:06.172 UTC: 	 Checking directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/biglib
+DEBUG 2025-02-20 14:25:06.172 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/biglib to tarball
+DEBUG 2025-02-20 14:25:06.172 UTC: 	 Checking directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/module
+DEBUG 2025-02-20 14:25:06.173 UTC: 	 Checking directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/config/SCRAM/hooks
+DEBUG 2025-02-20 14:25:06.173 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/config/SCRAM/hooks to tarball
+DEBUG 2025-02-20 14:25:06.223 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/FSRPhotons/python to tarball
+DEBUG 2025-02-20 14:25:06.249 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/data to tarball
+DEBUG 2025-02-20 14:25:28.161 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/interface to tarball
+DEBUG 2025-02-20 14:25:28.320 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python to tarball
+DEBUG 2025-02-20 14:25:31.761 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/KalmanMuonCalibrationsProducer/data to tarball
+DEBUG 2025-02-20 14:25:40.124 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/KalmanMuonCalibrationsProducer/interface to tarball
+DEBUG 2025-02-20 14:25:40.159 UTC: 	 Adding directory /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/SlimmedElectronMvaIDProducer/python to tarball
+DEBUG 2025-02-20 14:25:40.425 UTC: 	 Adding file /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/Summer23Prompt23_V1_MC.db to tarball
+DEBUG 2025-02-20 14:25:40.476 UTC: 	 Adding file /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/Summer23Prompt23_RunCv1234_JRV1_MC.db to tarball
+DEBUG 2025-02-20 14:25:41.546 UTC: 	 Uploading archive /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros/inputs/4f7a81a3-96f8-4992-9e65-db22ece56b7ddefault.tgz (28 MB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2025-02-20 14:25:47.392 UTC: 	 Encoded data for curl request: subresource=upload&objecttype=sandbox&tarballname=e22d7491fe7020bd8de056a7d6902ecc9614653b7370e65d09d45c1dfcbcb2dd.tar.gz
+DEBUG 2025-02-20 14:25:47.441 UTC: 	 sandbox e22d7491fe7020bd8de056a7d6902ecc9614653b7370e65d09d45c1dfcbcb2dd.tar.gz is already in the S3 store, will not upload again
+DEBUG 2025-02-20 14:25:47.441 UTC: 	 Loading required information from the environment
+DEBUG 2025-02-20 14:25:47.441 UTC: 	 Found CMSSW_13_0_13 for el8_amd64_gcc11 with base /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13
+DEBUG 2025-02-20 14:25:47.441 UTC: 	 Making tarball in /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros/inputs/debugFiles.tgz
+DEBUG 2025-02-20 14:25:47.448 UTC: 	 Uploading archive /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros/inputs/debugFiles.tgz (5 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2025-02-20 14:25:47.451 UTC: 	 Encoded data for curl request: subresource=upload&objecttype=sandbox&tarballname=998dadff67f33218d668174e78fd960d8d5b9ec081cb0277220f342aebca519f.tar.gz
+DEBUG 2025-02-20 14:25:47.536 UTC: 	 Will execute:
+curl -f -v -X POST  -H "User-Agent: CRAB" -F "key=lgeneros/sandboxes/998dadff67f33218d668174e78fd960d8d5b9ec081cb0277220f342aebca519f.tar.gz" -F "AWSAccessKeyId=715203df6482458ba839e73e6dab634b" -F "policy=eyJleHBpcmF0aW9uIjogIjIwMjUtMDItMjBUMTU6MjU6NDdaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiY3JhYmNhY2hlX3Byb2QifSwgeyJrZXkiOiAibGdlbmVyb3Mvc2FuZGJveGVzLzk5OGRhZGZmNjdmMzMyMThkNjY4MTc0ZTc4ZmQ5NjBkOGQ1YjllYzA4MWNiMDI3NzIyMGYzNDJhZWJjYTUxOWYudGFyLmd6In1dfQ==" -F "signature=kH8quFZXHlipyopP9x9PC9aod5M=" -F "file=@/afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros/inputs/debugFiles.tgz" "https://s3.cern.ch/crabcache_prod"
+DEBUG 2025-02-20 14:25:47.614 UTC: 	 exitcode: 0
+stdout: b''
+DEBUG 2025-02-20 14:25:47.614 UTC: 	 upload to S3 of sandbox /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros/inputs/debugFiles.tgz completed
+DEBUG 2025-02-20 14:25:47.614 UTC: 	 make sure that object is ready for retrieve
+DEBUG 2025-02-20 14:25:48.615 UTC: 	 Encoded data for curl request: subresource=download&objecttype=sandbox&tarballname=998dadff67f33218d668174e78fd960d8d5b9ec081cb0277220f342aebca519f.tar.gz&clientmethod=head_object
+DEBUG 2025-02-20 14:25:48.657 UTC: 	 PreSignedUrl to download sandbox received OK
+DEBUG 2025-02-20 14:25:48.659 UTC: 	 Will execute:
+ curl -v -s -f -o /dev/null --head  "https://s3.cern.ch/crabcache_prod/lgeneros/sandboxes/998dadff67f33218d668174e78fd960d8d5b9ec081cb0277220f342aebca519f.tar.gz?AWSAccessKeyId=715203df6482458ba839e73e6dab634b&Signature=S29o4TUiRZK5Ob7951pOhy9Njy8%3D&Expires=1740065148"
+DEBUG 2025-02-20 14:25:48.683 UTC: 	 exitcode: 0
+stdout: b''
+DEBUG 2025-02-20 14:25:48.683 UTC: 	 sandbox /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros/inputs/debugFiles.tgz successfully uploaded to S3
+DEBUG 2025-02-20 14:25:48.683 UTC: 	 Result uploading input files: e22d7491fe7020bd8de056a7d6902ecc9614653b7370e65d09d45c1dfcbcb2dd.tar.gz 
+WARNING 2025-02-20 14:25:48.683 UTC: 	 Warning: The following output files will not be published, as they are not EDM files: ['out_MC_Summer23_JECs.root']
+DEBUG 2025-02-20 14:25:48.684 UTC: 	 submit() - self.configuration from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferOutputs = True
+config.General.requestName = 'VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros'
+config.General.transferLogs = True
+config.General.workArea = 'resultsAna_crabdev/'
+config.section_('JobType')
+config.JobType.inputFiles = ['/afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/Summer23Prompt23_V1_MC.db', '/afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/Summer23Prompt23_RunCv1234_JRV1_MC.db']
+config.JobType.psetName = '/afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/HccAna/python/templateMC_QCDZqq_Summer23_JECdB.py'
+config.JobType.pluginName = 'Analysis'
+config.JobType.numCores = 2
+config.JobType.allowUndistributedCMSSW = True
+config.section_('Data')
+config.Data.splitting = 'FileBased'
+config.Data.inputDataset = '/VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3/lgeneros-130X_mcRun3_2022_realistic_v15_MINIAODSIM-7001f3c84dd6738fff9549020f956887/USER'
+config.Data.allowNonValidInputDataset = True
+config.Data.unitsPerJob = 3
+config.Data.inputDBS = 'phys03'
+config.Data.outputDatasetTag = '130X_mcRun3_2023_realistic_v14_tuple'
+config.Data.publication = True
+config.section_('Site')
+config.Site.storageSite = 'T2_IT_Bari'
+config.Site.ignoreGlobalBlacklist = True
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2025-02-20 14:25:48.684 UTC: 	 submit() - self.configreq {'dryrun': 0, 'workflow': 'crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros', 'saveoutput': 1, 'savelogsflag': 1, 'inputdata': '/VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3/lgeneros-130X_mcRun3_2022_realistic_v15_MINIAODSIM-7001f3c84dd6738fff9549020f956887/USER', 'nonvaliddata': 1, 'userfiles': [], 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSReader', 'useparent': 0, 'ignorelocality': 0, 'splitalgo': 'FileBased', 'algoargs': 3, 'totalunits': 0, 'publication': 1, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'publishname2': '130X_mcRun3_2023_realistic_v14_tuple', 'jobtype': 'Analysis', 'generator': 'pythia', 'addoutputfiles': [], 'maxjobruntime': 1250, 'numcores': 2, 'maxmemory': 2000, 'priority': 10, 'nonprodsw': 1, 'asyncdest': 'T2_IT_Bari', 'requireaccelerator': 0, 'oneEventMode': 0, 'extrajdl': [], 'ignoreglobalblacklist': 1, 'partialdataset': 0, 'inputblocks': []}
+DEBUG 2025-02-20 14:25:48.684 UTC: 	 submit() - jobconfig {'addoutputfiles': [], 'tfileoutfiles': ['out_MC_Summer23_JECs.root'], 'edmoutfiles': [], 'jobarch': 'el8_amd64_gcc11', 'jobsw': 'CMSSW_13_0_13', 'inputdata': '/VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3/lgeneros-130X_mcRun3_2022_realistic_v15_MINIAODSIM-7001f3c84dd6738fff9549020f956887/USER', 'cacheurl': 'https://cmsweb.cern.ch/S3/crabcache_prod', 'cachefilename': 'e22d7491fe7020bd8de056a7d6902ecc9614653b7370e65d09d45c1dfcbcb2dd.tar.gz', 'debugfilename': '998dadff67f33218d668174e78fd960d8d5b9ec081cb0277220f342aebca519f.tar.gz', 'jobtype': 'Analysis'}
+INFO 2025-02-20 14:25:48.684 UTC: 	 Sending the request to the server at cmsweb.cern.ch
+DEBUG 2025-02-20 14:25:48.684 UTC: 	 Submitting {'dryrun': 0, 'workflow': 'crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros', 'saveoutput': 1, 'savelogsflag': 1, 'inputdata': '/VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3/lgeneros-130X_mcRun3_2022_realistic_v15_MINIAODSIM-7001f3c84dd6738fff9549020f956887/USER', 'nonvaliddata': 1, 'userfiles': [], 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSReader', 'useparent': 0, 'ignorelocality': 0, 'splitalgo': 'FileBased', 'algoargs': 3, 'totalunits': 0, 'publication': 1, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'publishname2': '130X_mcRun3_2023_realistic_v14_tuple', 'jobtype': 'Analysis', 'generator': 'pythia', 'addoutputfiles': [], 'maxjobruntime': 1250, 'numcores': 2, 'maxmemory': 2000, 'priority': 10, 'nonprodsw': 1, 'asyncdest': 'T2_IT_Bari', 'requireaccelerator': 0, 'oneEventMode': 0, 'extrajdl': [], 'ignoreglobalblacklist': 1, 'partialdataset': 0, 'inputblocks': [], 'tfileoutfiles': ['out_MC_Summer23_JECs.root'], 'edmoutfiles': [], 'jobarch': 'el8_amd64_gcc11', 'jobsw': 'CMSSW_13_0_13', 'cacheurl': 'https://cmsweb.cern.ch/S3/crabcache_prod', 'cachefilename': 'e22d7491fe7020bd8de056a7d6902ecc9614653b7370e65d09d45c1dfcbcb2dd.tar.gz', 'debugfilename': '998dadff67f33218d668174e78fd960d8d5b9ec081cb0277220f342aebca519f.tar.gz'} 
+DEBUG 2025-02-20 14:25:48.684 UTC: 	 Encoded data for curl request: dryrun=0&workflow=crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros&saveoutput=1&savelogsflag=1&inputdata=%2FVBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3%2Flgeneros-130X_mcRun3_2022_realistic_v15_MINIAODSIM-7001f3c84dd6738fff9549020f956887%2FUSER&nonvaliddata=1&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSReader&useparent=0&ignorelocality=0&splitalgo=FileBased&algoargs=3&totalunits=0&publication=1&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&publishname2=130X_mcRun3_2023_realistic_v14_tuple&jobtype=Analysis&generator=pythia&maxjobruntime=1250&numcores=2&maxmemory=2000&priority=10&nonprodsw=1&asyncdest=T2_IT_Bari&requireaccelerator=0&oneEventMode=0&ignoreglobalblacklist=1&partialdataset=0&jobarch=el8_amd64_gcc11&jobsw=CMSSW_13_0_13&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2FS3%2Fcrabcache_prod&cachefilename=e22d7491fe7020bd8de056a7d6902ecc9614653b7370e65d09d45c1dfcbcb2dd.tar.gz&debugfilename=998dadff67f33218d668174e78fd960d8d5b9ec081cb0277220f342aebca519f.tar.gz&tfileoutfiles=out_MC_Summer23_JECs.root
+DEBUG 2025-02-20 14:25:49.119 UTC: 	 Result: {'result': [{'RequestName': '250220_142548:lgeneros_crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros'}]}
+INFO 2025-02-20 14:25:49.121 UTC: 	 Success: Your task has been delivered to the prod CRAB3 server.
+INFO 2025-02-20 14:25:49.122 UTC: 	 Task name: 250220_142548:lgeneros_crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros
+INFO 2025-02-20 14:25:49.122 UTC: 	 Project dir: resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros
+INFO 2025-02-20 14:25:49.122 UTC: 	 Please use ' crab status -d resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros ' to check how the submission process proceeds.
+DEBUG 2025-02-20 14:25:49.122 UTC: 	 About to return
+INFO 2025-02-20 14:25:49.124 UTC: 	 Log file is /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros/crab.log
+DEBUG 2025-02-20 14:26:29.927 UTC: 	 CRAB Client version: v3.241125
+DEBUG 2025-02-20 14:26:29.927 UTC: 	 Running on: Linux lxplus804.cern.ch 4.18.0-553.32.1.el8_10.x86_64 #1 SMP Mon Dec 2 06:32:20 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2025-02-20 14:26:29.927 UTC: 	 Not using Singularity
+DEBUG 2025-02-20 14:26:29.927 UTC: 	 Operating System: Red Hat Enterprise Linux 8.10 (Ootpa)
+DEBUG 2025-02-20 14:26:29.927 UTC: 	 Executing command: 'status'
+DEBUG 2025-02-20 14:26:29.927 UTC: 	 Found CRAB cache file /afs/cern.ch/user/l/lgeneros/.crab3
+DEBUG 2025-02-20 14:26:29.931 UTC: 	 Checking credentials
+DEBUG 2025-02-20 14:26:29.931 UTC: 	 Found proxy file /tmp/x509up_u163811
+DEBUG 2025-02-20 14:26:29.931 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2025-02-20 14:26:29.931 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u163811
+DEBUG 2025-02-20 14:26:30.321 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2025-02-20 14:26:30.322 UTC: 	 Getting proxy life time left
+DEBUG 2025-02-20 14:26:30.322 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u163811
+DEBUG 2025-02-20 14:26:30.696 UTC: 	 output : 42951
+42951
+
+ error: 
+ retcode : 0
+DEBUG 2025-02-20 14:26:30.696 UTC: 	 Proxy valid for 11:55:51 hours
+DEBUG 2025-02-20 14:26:30.697 UTC: 	 Encoded data for curl request: subresource=delegatedn
+DEBUG 2025-02-20 14:26:30.741 UTC: 	 Registering user credentials on myproxy for /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+DEBUG 2025-02-20 14:26:30.741 UTC: 	 Executing command :
+ voms-proxy-info --identity --file /tmp/x509up_u163811
+DEBUG 2025-02-20 14:26:31.105 UTC: 	 output : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=lgeneros/CN=870655/CN=Lisa Generoso
+
+ error: 
+ retcode : 0
+DEBUG 2025-02-20 14:26:31.106 UTC: 	 Getting myproxy life time left for 9c44db66782fefd347de87081c6798c4ef073578
+DEBUG 2025-02-20 14:26:31.106 UTC: 	 Executing command :
+ myproxy-info -s myproxy.cern.ch -l 9c44db66782fefd347de87081c6798c4ef073578
+DEBUG 2025-02-20 14:26:31.449 UTC: 	 output : username: 9c44db66782fefd347de87081c6798c4ef073578
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=lgeneros/CN=870655/CN=Lisa Generoso
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  timeleft: 457:40:10  (19.1 days)
+
+ error: 
+ retcode : 0
+DEBUG 2025-02-20 14:26:31.449 UTC: 	 Myproxy is valid: 1647600
+DEBUG 2025-02-20 14:26:31.450 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: 9c44db66782fefd347de87081c6798c4ef073578  - validity: 19 days, 1:40:00
+DEBUG 2025-02-20 14:26:31.450 UTC: 	 Retrieving username ...
+DEBUG 2025-02-20 14:26:31.450 UTC: 	 Retrieving username from CRIC...
+DEBUG 2025-02-20 14:26:32.064 UTC: 	 username is lgeneros
+INFO 2025-02-20 14:26:33.078 UTC: 	 Rucio client intialized for account lgeneros
+DEBUG 2025-02-20 14:26:33.078 UTC: 	 Command use: status
+DEBUG 2025-02-20 14:26:33.078 UTC: 	 Options use: ['-d', 'resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros']
+DEBUG 2025-02-20 14:26:33.079 UTC: 	 Encoded data for curl request: subresource=version
+DEBUG 2025-02-20 14:26:33.116 UTC: 	 CRABClient version: v3.241125
+DEBUG 2025-02-20 14:26:33.116 UTC: 	 Instance is prod
+DEBUG 2025-02-20 14:26:33.116 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2025-02-20 14:26:33.116 UTC: 	 Command api workflow
+DEBUG 2025-02-20 14:26:33.116 UTC: 	 Encoded data for curl request: subresource=search&workflow=250220_142548%3Algeneros_crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros
+DEBUG 2025-02-20 14:26:33.160 UTC: 	 Got information from server oracle database: {'desc': {'columns': ['tm_taskname', 'tm_activity', 'tm_task_status', 'tm_task_command', 'tm_start_time', 'tm_start_injection', 'tm_end_injection', 'tm_task_failure', 'tm_job_sw', 'tm_job_arch', 'tm_input_dataset', 'tm_nonvalid_input_dataset', 'tm_use_parent', 'tm_site_whitelist', 'tm_site_blacklist', 'tm_split_algo', 'tm_split_args', 'tm_user_sandbox', 'tm_cache_url', 'tm_username', 'tm_user_dn', 'tm_user_vo', 'tm_user_role', 'tm_user_group', 'tm_publish_name', 'tm_publish_groupname', 'tm_asyncdest', 'tm_dbs_url', 'tm_publish_dbs_url', 'tm_publication', 'tm_outfiles', 'tm_tfile_outfiles', 'tm_edm_outfiles', 'tm_job_type', 'tm_generator', 'tm_events_per_lumi', 'tm_arguments', 'tm_save_logs', 'tw_name', 'tm_user_infiles', 'tm_maxjobruntime', 'tm_numcores', 'tm_maxmemory', 'tm_priority', 'tm_output_dataset', 'tm_task_warnings', 'tm_user_webdir', 'tm_scriptexe', 'tm_scriptargs', 'tm_extrajdl', 'tm_collector', 'tm_schedd', 'tm_dry_run', 'tm_user_files', 'tm_transfer_outputs', 'tm_output_lfn', 'tm_ignore_locality', 'tm_fail_limit', 'tm_one_event_mode', 'tm_secondary_input_dataset', 'tm_primary_dataset', 'tm_last_publication', 'tm_debug_files', 'clusterid', 'tm_ignore_global_blacklist', 'tm_submitter_ip_addr', 'tm_totalunits', 'tm_ddm_reqid', 'tm_user_config', 'tm_transfer_container', 'tm_transfer_rule', 'tm_publish_rule', 'tm_multipub_rule', 'tm_job_min_microarch']}, 'result': ['250220_142548:lgeneros_crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros', 'None', 'HOLDING', 'SUBMIT', '2025-02-20 14:25:49.111376', 'None', 'None', 'None', 'CMSSW_13_0_13', 'el8_amd64_gcc11', '/VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3/lgeneros-130X_mcRun3_2022_realistic_v15_MINIAODSIM-7001f3c84dd6738fff9549020f956887/USER', 'T', '0', '[]', '[]', 'FileBased', "{'halt_job_on_file_boundaries': False, 'splitOnRun': False, 'files_per_job': 3, 'runs': [], 'lumis': []}", 'e22d7491fe7020bd8de056a7d6902ecc9614653b7370e65d09d45c1dfcbcb2dd.tar.gz', 'https://cmsweb.cern.ch/S3/crabcache_prod', 'lgeneros', '/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=lgeneros/CN=870655/CN=Lisa Generoso', 'cms', 'None', 'None', '130X_mcRun3_2023_realistic_v14_tuple-00000000000000000000000000000000', 'F', 'T2_IT_Bari', 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSReader', 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'T', '[]', "['out_MC_Summer23_JECs.root']", '[]', 'Analysis', 'pythia', 'None', '{}', 'T', 'crab-prod-tw01', '[]', '1250', '2', '2000', '10', 'None', '[]', 'None', 'None', '[]', '[]', 'cmsgwms-collector-global.cern.ch:9620,cmsgwms-collector-global.fnal.gov:9620', 'None', 'F', '[]', 'T', '/store/user/lgeneros/', 'F', 'None', 'F', 'None', 'VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3', 'None', '998dadff67f33218d668174e78fd960d8d5b9ec081cb0277220f342aebca519f.tar.gz', 'None', 'T', '188.185.89.194', '0.0', 'None', '{"partialdataset": false, "requireaccelerator": false, "acceleratorparams": null, "inputblocks": null}', 'None', 'None', 'None', 'None', 'None']}
+INFO 2025-02-20 14:26:33.160 UTC: 	 CRAB project directory:		/afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros
+INFO 2025-02-20 14:26:33.160 UTC: 	 Task name:			250220_142548:lgeneros_crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros
+INFO 2025-02-20 14:26:33.160 UTC: 	 Grid scheduler - Task Worker:	N/A yet - crab-prod-tw01
+INFO 2025-02-20 14:26:33.160 UTC: 	 Status on the CRAB server:	HOLDING on command SUBMIT
+INFO 2025-02-20 14:26:33.160 UTC: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/250220_142548%3Algeneros_crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros
+INFO 2025-02-20 14:26:33.167 UTC: 	 Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=lgeneros&var-task=250220_142548%3Algeneros_crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros&from=1740057949000&to=now
+DEBUG 2025-02-20 14:26:33.167 UTC: 	 The task has not been submitted to the Grid scheduler yet. Not printing job information.
+INFO 2025-02-20 14:26:33.168 UTC: 	 Log file is /afs/cern.ch/user/l/lgeneros/Hcc-studies-lxp8/CMSSW_13_0_13/src/Hcc/Utilities/crab/resultsAna_crabdev/crab_VBFZto2Q_TuneCP5_13p6TeV_madgraph-pythia8_Run3_lgeneros/crab.log

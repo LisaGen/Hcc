@@ -374,7 +374,10 @@ private:
     vector<float> jet_pfParticleNetAK4JetTags_probb, jet_pfParticleNetAK4JetTags_probc, jet_pfParticleNetAK4JetTags_probuds,jet_pfParticleNetAK4JetTags_probg, jet_pfParticleNetAK4JetTags_probtauh;  
     vector<float> jet_pfParticleNetAK4JetTags_CvsB, jet_pfParticleNetAK4JetTags_CvsL, jet_pfParticleNetAK4JetTags_CvsAll,jet_pfParticleNetAK4JetTags_BvsC, jet_pfParticleNetAK4JetTags_BvsL, jet_pfParticleNetAK4JetTags_BvsAll, jet_pfParticleNetAK4JetTags_QvsG; 
     vector<float> jet_PNetRegPtRawCorr, jet_PNetRegPtRawCorrNeutrino, jet_PNetRegPtRawRes; 
-
+    
+    vector<float> jet_pfUnifiedParticleTransformerAK4JetTags_probb, jet_pfUnifiedParticleTransformerAK4JetTags_probc, jet_pfUnifiedParticleTransformerAK4JetTags_probudg, jet_pfUnifiedParticleTransformerAK4JetTags_probg;
+    vector<float> jet_pfUnifiedParticleTransformerAK4JetTags_CvsB, jet_pfUnifiedParticleTransformerAK4JetTags_CvsL, jet_pfUnifiedParticleTransformerAK4JetTags_CvsNotB, jet_pfUnifiedParticleTransformerAK4JetTags_BvsAll, jet_pfUnifiedParticleTransformerAK4JetTags_QvsG;
+    vector<float> jet_UParTAK4RegPtRawCorr, jet_UParTAK4RegPtRawCorrNeutrino, jet_UParTAK4RegPtRawRes; //LisaMod
 
     vector<float> jet_pfDeepJetAK4JetTags_probb, jet_pfDeepJetAK4JetTags_probbb, jet_pfDeepJetAK4JetTags_problepb, jet_pfDeepJetAK4JetTags_probc, jet_pfDeepJetAK4JetTags_probuds,jet_pfDeepJetAK4JetTags_probg; 
 
@@ -1138,8 +1141,8 @@ jetCorrParameterSet.validKeys(keys);
 
     //lepton variables
 	
-	//ALLlep_pt.clear(); ALLlep_eta.clear(); ALLlep_phi.clear(); ALLlep_mass.clear(); ALLlep_id.clear();
-	Ele_pt.clear(); Ele_eta.clear(); Ele_phi.clear(); Ele_mass.clear(); Ele_dxy.clear(); Ele_dz.clear(); Ele_id.clear(); Ele_hcalIso.clear(); Ele_ecalIso.clear(); Ele_trackIso.clear(); Ele_isEB.clear(); Ele_IsoCal.clear(); /*Ele_PF_Iso_R04.clear();*/ Ele_isPassID.clear(); Ele_03_Neutral.clear();
+	  //ALLlep_pt.clear(); ALLlep_eta.clear(); ALLlep_phi.clear(); ALLlep_mass.clear(); ALLlep_id.clear();
+	  Ele_pt.clear(); Ele_eta.clear(); Ele_phi.clear(); Ele_mass.clear(); Ele_dxy.clear(); Ele_dz.clear(); Ele_id.clear(); Ele_hcalIso.clear(); Ele_ecalIso.clear(); Ele_trackIso.clear(); Ele_isEB.clear(); Ele_IsoCal.clear(); /*Ele_PF_Iso_R04.clear();*/ Ele_isPassID.clear(); Ele_03_Neutral.clear();
     Muon_pt.clear(); Muon_eta.clear(); Muon_phi.clear(); Muon_mass.clear(); Muon_dxy.clear(); Muon_dz.clear(); Muon_id.clear(); Muon_isPF.clear(); Muon_PF_Iso_R04.clear(); Muon_PassLooseID.clear();
     AK4lep_pt.clear(); AK4lep_eta.clear(); AK4lep_phi.clear(); AK4lep_mass.clear(); AK4lep_id.clear();
 		
@@ -1204,12 +1207,12 @@ jetCorrParameterSet.validKeys(keys);
     jet_pfParticleNetAK4JetTags_CvsB.clear(); jet_pfParticleNetAK4JetTags_CvsL.clear(); jet_pfParticleNetAK4JetTags_CvsAll.clear(); jet_pfParticleNetAK4JetTags_BvsC.clear(); jet_pfParticleNetAK4JetTags_BvsL.clear(); jet_pfParticleNetAK4JetTags_BvsAll.clear();  jet_pfParticleNetAK4JetTags_QvsG.clear();
     jet_PNetRegPtRawCorr.clear(); jet_PNetRegPtRawCorrNeutrino.clear(); jet_PNetRegPtRawRes.clear();
 
-
-
-
-
+    jet_UParTAK4RegPtRawCorr.clear(); jet_UParTAK4RegPtRawCorrNeutrino.clear(); jet_UParTAK4RegPtRawRes.clear(); //Lisa Mod
+    jet_pfUnifiedParticleTransformerAK4JetTags_probb.clear(); jet_pfUnifiedParticleTransformerAK4JetTags_probc.clear(); jet_pfUnifiedParticleTransformerAK4JetTags_probudg.clear(); jet_pfUnifiedParticleTransformerAK4JetTags_probg.clear();
+    jet_pfUnifiedParticleTransformerAK4JetTags_CvsB.clear(); jet_pfUnifiedParticleTransformerAK4JetTags_CvsL.clear(); jet_pfUnifiedParticleTransformerAK4JetTags_CvsNotB.clear(); jet_pfUnifiedParticleTransformerAK4JetTags_BvsAll.clear();  jet_pfUnifiedParticleTransformerAK4JetTags_QvsG.clear();
+    
+    
     jet_pfDeepJetAK4JetTags_probb.clear(); jet_pfDeepJetAK4JetTags_probbb.clear(); jet_pfDeepJetAK4JetTags_problepb.clear(); jet_pfDeepJetAK4JetTags_probc.clear(); jet_pfDeepJetAK4JetTags_probuds.clear(); jet_pfDeepJetAK4JetTags_probg.clear();
-
     jet_pfDeepCSVAK4JetTags_probb.clear(); jet_pfDeepCSVAK4JetTags_probbb.clear(); jet_pfDeepCSVAK4JetTags_probc.clear(); jet_pfDeepCSVAK4JetTags_probudsg.clear();
     
     // Puppi AK8jets with ParticleNet and DeepDoubleX taggers
@@ -1271,7 +1274,7 @@ jetCorrParameterSet.validKeys(keys);
     AK4PuppiJets_pt_float.clear(); 
     AK4PuppiJetsJESUp_pt_float.clear();AK4PuppiJetsJESDown_pt_float.clear(); 
     AK4PuppiJetsSmear_pt_float.clear(); AK4PuppiJetsSmearUp_pt_float.clear();AK4PuppiJetsSmearDown_pt_float.clear();  AK4PuppiJets_uncorrpt_float.clear(); AK4PuppiJets_eta_float.clear(); AK4PuppiJets_phi_float.clear(); AK4PuppiJets_mass_float.clear();
-	AK8PuppiJets_pt_float.clear(); AK8PuppiJets_eta_float.clear(); AK8PuppiJets_phi_float.clear(); AK8PuppiJets_mass_float.clear();
+	  AK8PuppiJets_pt_float.clear(); AK8PuppiJets_eta_float.clear(); AK8PuppiJets_phi_float.clear(); AK8PuppiJets_mass_float.clear();
     AK4PuppiJets_qgl.clear();
 
     HLTJet80_pt_float.clear();  HLTJet80_eta_float.clear(); HLTJet80_phi_float.clear();
@@ -1678,8 +1681,8 @@ if(trigConditionData && verbose)
         AK4PuppiJets_phi_float.assign(AK4PuppiJets_phi.begin(), AK4PuppiJets_phi.end()); 
         AK4PuppiJets_mass_float.assign(AK4PuppiJets_mass.begin(), AK4PuppiJets_mass.end());
 
-    	AK8PuppiJets_pt_float.assign(AK8PuppiJets_pt.begin(), AK8PuppiJets_pt.end()); 
-	    AK8PuppiJets_eta_float.assign(AK8PuppiJets_eta.begin(), AK8PuppiJets_eta.end()); 
+    	  AK8PuppiJets_pt_float.assign(AK8PuppiJets_pt.begin(), AK8PuppiJets_pt.end()); 
+	      AK8PuppiJets_eta_float.assign(AK8PuppiJets_eta.begin(), AK8PuppiJets_eta.end()); 
         AK8PuppiJets_phi_float.assign(AK8PuppiJets_phi.begin(), AK8PuppiJets_phi.end()); 
         AK8PuppiJets_mass_float.assign(AK8PuppiJets_mass.begin(), AK8PuppiJets_mass.end());
 
@@ -1951,6 +1954,8 @@ void HccAna::bookPassedEventTree(TString treeName, TTree *tree)
     tree->Branch("jet_PNetRegPtRawCorrNeutrino", &jet_PNetRegPtRawCorrNeutrino);	
     tree->Branch("jet_PNetRegPtRawRes ", &jet_PNetRegPtRawRes);	
 
+    
+
     tree->Branch("jet_pfParticleNetAK4JetTags_CvsB", &jet_pfParticleNetAK4JetTags_CvsB);	
     tree->Branch("jet_pfParticleNetAK4JetTags_CvsL", &jet_pfParticleNetAK4JetTags_CvsL);	
     tree->Branch("jet_pfParticleNetAK4JetTags_CvsAll", &jet_pfParticleNetAK4JetTags_CvsAll);	
@@ -1958,6 +1963,23 @@ void HccAna::bookPassedEventTree(TString treeName, TTree *tree)
     tree->Branch("jet_pfParticleNetAK4JetTags_BvsL", &jet_pfParticleNetAK4JetTags_BvsL);	
     tree->Branch("jet_pfParticleNetAK4JetTags_BvsAll", &jet_pfParticleNetAK4JetTags_BvsAll);
     tree->Branch("jet_pfParticleNetAK4JetTags_QvsG", &jet_pfParticleNetAK4JetTags_QvsG);	
+
+
+    //Uptarfiscr discriminants //LisaMod
+    tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_probb", &jet_pfUnifiedParticleTransformerAK4JetTags_probb);	
+    tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_probc", &jet_pfUnifiedParticleTransformerAK4JetTags_probc);	
+    tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_probudg", &jet_pfUnifiedParticleTransformerAK4JetTags_probudg);	
+    tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_probg", &jjet_pfUnifiedParticleTransformerAK4JetTags_probg);	
+    tree->Branch("jet_UParTAK4RegPtRawCorr", &jet_UParTAK4RegPtRawCorr);	
+    tree->Branch("jet_UParTAK4RegPtRawCorrNeutrino", &jet_UParTAK4RegPtRawCorrNeutrino);	
+    tree->Branch("jet_UParTAK4RegPtRawRes ", &jet_UParTAK4RegPtRawRes);	
+
+    tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_CvsB", &jet_pfUnifiedParticleTransformerAK4JetTags_CvsB);	
+    tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_CvsL", &jet_pfUnifiedParticleTransformerAK4JetTags_CvsL);	
+    tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_CvsNotB", &jet_pfUnifiedParticleTransformerAK4JetTags_CvsNotB);	
+    tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_BvsAll", &jet_pfUnifiedParticleTransformerAK4JetTags_BvsAll);
+    tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_QvsG", &jet_pfUnifiedParticleTransformerAK4JetTags_QvsG);	
+
     //DeepJet discriminants
     tree->Branch("jet_pfDeepJetAK4JetTags_probb",&jet_pfDeepJetAK4JetTags_probb);
     tree->Branch("jet_pfDeepJetAK4JetTags_probbb",&jet_pfDeepJetAK4JetTags_probbb);
@@ -2343,7 +2365,7 @@ void HccAna::setTreeVariables( const edm::Event& iEvent, const edm::EventSetup& 
       
       float QvsG=-1.;
 
-      if(year==2023){
+      if(year==2023 || year == 2024){ //LisaMod
 
         jet_pfParticleNetAK4JetTags_probb.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfParticleNetFromMiniAODAK4PuppiCentralJetTags:probb"));
         //jet_pfParticleNetAK4JetTags_probb.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfParticleNetAK4JetTags:probb"));
@@ -2354,6 +2376,7 @@ void HccAna::setTreeVariables( const edm::Event& iEvent, const edm::EventSetup& 
         float PNetRegPtRawCorr = AK4PuppiJets->at(ijet).bDiscriminator("pfParticleNetFromMiniAODAK4PuppiCentralJetTags:ptcorr");
         float PNetRegPtRawCorrNeutrino = AK4PuppiJets->at(ijet).bDiscriminator("pfParticleNetFromMiniAODAK4PuppiCentralJetTags:ptnu");
         float PNetRegPtRawRes = 0.5*(AK4PuppiJets->at(ijet).bDiscriminator("pfParticleNetFromMiniAODAK4PuppiCentralJetTags:ptreshigh")-AK4PuppiJets->at(ijet).bDiscriminator("pfParticleNetFromMiniAODAK4PuppiCentralJetTags:ptreslow"));
+        
         if(fabs(AK4PuppiJets->at(ijet).eta())>=2.5){
           PNetRegPtRawCorr = AK4PuppiJets->at(ijet).bDiscriminator("pfParticleNetFromMiniAODAK4PuppiForwardJetTags:ptcorr");
           PNetRegPtRawCorrNeutrino = AK4PuppiJets->at(ijet).bDiscriminator("pfParticleNetFromMiniAODAK4PuppiForwardJetTags:ptnu");
@@ -2375,6 +2398,38 @@ void HccAna::setTreeVariables( const edm::Event& iEvent, const edm::EventSetup& 
           QvsG=AK4PuppiJets->at(ijet).bDiscriminator("pfParticleNetFromMiniAODAK4PuppiForwardDiscriminatorsJetTags:QvsG");
         }
         jet_pfParticleNetAK4JetTags_QvsG.push_back(QvsG);
+
+        //LisaMod
+        jet_pfUnifiedParticleTransformerAK4JetTags_probb.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4JetTags:probb"));
+        jet_pfUnifiedParticleTransformerAK4JetTags_probc.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4JetTags:probc"));
+        jet_pfUnifiedParticleTransformerAK4JetTags_probudg.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4JetTags:probudg"));
+        jet_pfUnifiedParticleTransformerAK4JetTags_probg.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4JetTags:probg"));
+        //jet_pfUnifiedParticleTransformerAK4JetTags_probtauh.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4JetTags:probtauh")); //WRONG
+        float UParTAK4RegPtRawCorr = AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4JetTags:ptcorr");
+        float UParTAK4RegPtRawCorrNeutrino = AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4JetTags:ptnu");
+        float UParTAK4RegPtRawRes = 0.5*(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4JetTags:ptreshigh")-AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4JetTags:ptreslow"));//WRONG
+        
+        /*if(fabs(AK4PuppiJets->at(ijet).eta())>=2.5){
+          UParTPtRawCorr = AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerFromMiniAODAK4PuppiForwardJetTags:ptcorr");
+          UParTRegPtRawCorrNeutrino = AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerFromMiniAODAK4PuppiForwardJetTags:ptnu");
+          UParTRegPtRawRes = 0.5*(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerFromMiniAODAK4PuppiForwardJetTags:ptreshigh")-AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerFromMiniAODAK4PuppiForwardJetTags:ptreslow"));
+        }*/ // DOESN'T EXIST
+        jet_UParTPtRawCorr.push_back(UParTAK4RegPtRawCorr);
+        jet_UParTPtRawCorrNeutrino.push_back(UParTAK4RegPtRawCorrNeutrino);
+        jet_UParTPtRawRes.push_back(UParTAK4RegPtRawRes); 
+ 
+        jet_pfUnifiedParticleTransformerAK4JetTags_CvsB.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4DiscriminatorsJetTags:CvsB"));
+        jet_pfUnifiedParticleTransformerAK4JetTags_CvsL.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4DiscriminatorsJetTags:CvsL"));
+        jet_pfUnifiedParticleTransformerAK4JetTags_CvsNotB.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4DiscriminatorsJetTags:CvsNotB"));
+        //jet_pfUnifiedParticleTransformerAK4JetTags_CvsAll.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4DiscriminatorsJetTags:CvsAll")); //WRONG
+        //jet_pfUnifiedParticleTransformerAK4JetTags_BvsC.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4DiscriminatorsJetTags:BvsC")); //WRONG
+        //jet_pfUnifiedParticleTransformerAK4JetTags_BvsL.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4DiscriminatorsJetTags:BvsL")); //WRONG
+        jet_pfUnifiedParticleTransformerAK4JetTags_BvsAll.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4DiscriminatorsJetTags:BvsAll"));
+        QvsG=AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4DiscriminatorsJetTags:QvsG");
+        /*if(fabs(AK4PuppiJets->at(ijet).eta())>=2.5){
+          QvsG=AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerFromMiniAODAK4PuppiForwardDiscriminatorsJetTags:QvsG");
+        }*/ // DOESN'T EXIST
+        jet_pfUnifiedParticleTransformerAK4JetTags_QvsG.push_back(QvsG);
       }
 
       else{
