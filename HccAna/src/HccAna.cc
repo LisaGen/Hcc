@@ -389,8 +389,8 @@ private:
 	
     vector<double> AK8PuppiJets_pt;
     vector<double> AK8PuppiJets_eta;
-	vector<double> AK8PuppiJets_phi;
-	vector<double> AK8PuppiJets_mass;
+	  vector<double> AK8PuppiJets_phi;
+	  vector<double> AK8PuppiJets_mass;
     vector<double> AK8PuppiJets_softdropmass;
 	
 	vector<float> jet_pfParticleNetJetTags_probZbb, jet_pfParticleNetJetTags_probZcc, jet_pfParticleNetJetTags_probZqq, jet_pfParticleNetJetTags_probQCDbb, jet_pfParticleNetJetTags_probQCDcc, jet_pfParticleNetJetTags_probQCDb, jet_pfParticleNetJetTags_probQCDc, jet_pfParticleNetJetTags_probQCDothers, jet_pfParticleNetJetTags_probHbb, jet_pfParticleNetJetTags_probHcc, jet_pfParticleNetJetTags_probHqqqq;  
@@ -1969,7 +1969,7 @@ void HccAna::bookPassedEventTree(TString treeName, TTree *tree)
     tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_probb", &jet_pfUnifiedParticleTransformerAK4JetTags_probb);	
     tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_probc", &jet_pfUnifiedParticleTransformerAK4JetTags_probc);	
     tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_probudg", &jet_pfUnifiedParticleTransformerAK4JetTags_probudg);	
-    tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_probg", &jjet_pfUnifiedParticleTransformerAK4JetTags_probg);	
+    tree->Branch("jet_pfUnifiedParticleTransformerAK4JetTags_probg", &jet_pfUnifiedParticleTransformerAK4JetTags_probg);	
     tree->Branch("jet_UParTAK4RegPtRawCorr", &jet_UParTAK4RegPtRawCorr);	
     tree->Branch("jet_UParTAK4RegPtRawCorrNeutrino", &jet_UParTAK4RegPtRawCorrNeutrino);	
     tree->Branch("jet_UParTAK4RegPtRawRes ", &jet_UParTAK4RegPtRawRes);	
@@ -2414,9 +2414,9 @@ void HccAna::setTreeVariables( const edm::Event& iEvent, const edm::EventSetup& 
           UParTRegPtRawCorrNeutrino = AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerFromMiniAODAK4PuppiForwardJetTags:ptnu");
           UParTRegPtRawRes = 0.5*(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerFromMiniAODAK4PuppiForwardJetTags:ptreshigh")-AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerFromMiniAODAK4PuppiForwardJetTags:ptreslow"));
         }*/ // DOESN'T EXIST
-        jet_UParTPtRawCorr.push_back(UParTAK4RegPtRawCorr);
-        jet_UParTPtRawCorrNeutrino.push_back(UParTAK4RegPtRawCorrNeutrino);
-        jet_UParTPtRawRes.push_back(UParTAK4RegPtRawRes); 
+        jet_UParTAK4RegPtRawCorr.push_back(UParTAK4RegPtRawCorr);
+        jet_UParTAK4RegPtRawCorrNeutrino.push_back(UParTAK4RegPtRawCorrNeutrino);
+        jet_UParTAK4RegPtRawRes.push_back(UParTAK4RegPtRawRes); 
  
         jet_pfUnifiedParticleTransformerAK4JetTags_CvsB.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4DiscriminatorsJetTags:CvsB"));
         jet_pfUnifiedParticleTransformerAK4JetTags_CvsL.push_back(AK4PuppiJets->at(ijet).bDiscriminator("pfUnifiedParticleTransformerAK4DiscriminatorsJetTags:CvsL"));
