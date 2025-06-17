@@ -51,11 +51,6 @@ process.printTree = cms.EDAnalyzer("ParticleListDrawer",
 
 
 myfilelist = cms.untracked.vstring(
-#''/store/mc/Run3Summer22MiniAODv3/QCD_PT-120to170_TuneCP5_13p6TeV_pythia8/MINIAODSIM/124X_mcRun3_2022_realistic_v12-v2/80000/06ab5fe5-59c7-4dad-9dc2-fe0b75af4379.root',',
-#'/store/mc/Run3Winter23MiniAOD/VBFHto2C_M-125_TuneCP5_13p6TeV_powheg-pythia8/MINIAODSIM/GTv3Digi_GTv3_MiniGTv3_126X_mcRun3_2023_forPU65_v3-v2/2810000/11d4a49f-0565-4dad-a0f0-b0d287889dcc.root',
-#'/store/mc/Run3Summer23MiniAODv4/Zto2Q-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/MINIAODSIM/130X_mcRun3_2023_realistic_v14-v1/30000/011d1978-b670-4faa-b776-37783cc8f7f7.root',
-#'/store/mc/Run3Summer23MiniAODv4/Zto2Q-2Jets_PTQQ-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/MINIAODSIM/130X_mcRun3_2023_realistic_v14-v3/2810000/001e44af-bed4-4ffa-aca0-e7a0371e241f.root',
-#'/store/mc/Run3Summer23MiniAODv4/VBFHto2C_M-125_TuneCP5_13p6TeV_powheg-pythia8/MINIAODSIM/130X_mcRun3_2023_realistic_v14-v3/2550000/05cafea2-5726-42b5-aaea-432421ebcb8b.root'
 '/store/mc/RunIII2024Summer24MiniAOD/VBFH-Hto2C_Par-M-125_TuneCP5_13p6TeV_powheg-pythia8/MINIAODSIM/140X_mcRun3_2024_realistic_v26-v2/130000/00837f9f-76ac-47ba-aaf0-969c5e38b49c.root'
 
 )
@@ -145,9 +140,7 @@ process.slimmedJetsSmeared = cms.EDProducer('SmearedPATJetProducer',
        rho = cms.InputTag("fixedGridRhoFastjetAll"),
        algo = cms.string('AK4PFPuppi'),
        algopt = cms.string('AK4PFPuppi_pt'),
-       #resolutionFile = cms.FileInPath('Autumn18_V7_MC_PtResolution_AK4PFchs.txt'),
-       #scaleFactorFile = cms.FileInPath('combined_SFs_uncertSources.txt'),
-
+       
        genJets = cms.InputTag('slimmedGenJets'),
        dRMax = cms.double(0.2),
        dPtMaxFactor = cms.double(3),
@@ -209,16 +202,16 @@ process.updatedPatJetsPileupJetID.userData.userFloats.src = ['pileupJetIdUpdated
 process.load('RecoJets.JetProducers.QGTagger_cfi')
 #process.QGTagger.srcJets=cms.InputTag("selectedUpdatedPatJetsPileupJetID")
 #process.QGTagger.srcJets=cms.InputTag("updatedPatJetsPileupJetID")
-process.QGTagger.srcJets=cms.InputTag("updatedPatJetsUpdatedJEC")
-#process.QGTagger.srcJets=cms.InputTag("slimmedJetsPuppi")#lisaMod
+#process.QGTagger.srcJets=cms.InputTag("updatedPatJetsUpdatedJEC")#prima era così
+process.QGTagger.srcJets=cms.InputTag("slimmedJetsPuppi")#lisaMod
 process.QGTagger.srcVertexCollection=cms.InputTag("offlineSlimmedPrimaryVertices")
 
 updateJetCollection(
    process,
    labelName = 'QGT',
    #jetSource = cms.InputTag('updatedPatJetsPileupJetID'),
-   jetSource = cms.InputTag('updatedPatJetsUpdatedJEC'),
-   #jetSource = cms.InputTag("slimmedJetsPuppi"), #lisaMod
+   #jetSource = cms.InputTag('updatedPatJetsUpdatedJEC'), #era cos
+   jetSource = cms.InputTag("slimmedJetsPuppi"), #lisaMod
    #jetSource = cms.InputTag('slimmedJetsSmeared'),
 )
 process.updatedPatJetsQGT.userData.userFloats.src = ['QGTagger:qgLikelihood']
@@ -250,8 +243,8 @@ process.Ana = cms.EDAnalyzer('HccAna',
                               #tauSrc      = cms.untracked.InputTag("slimmedTaus"),
                               #jetSrc       = cms.untracked.InputTag("slimmedJets"),
                               #AK4PuppiJetSrc       = cms.InputTag("updatedPatJetsUpdatedJEC"),
-                              AK4PuppiJetSrc       = cms.InputTag("slimmedJetsPuppi"),
-                              #AK4PuppiJetSrc       = cms.InputTag("updatedPatJetsQGT"),
+                              #AK4PuppiJetSrc       = cms.InputTag("slimmedJetsPuppi"),
+                              AK4PuppiJetSrc       = cms.InputTag("updatedPatJetsQGT"),
                               AK4PuppiJetSmearSrc       = cms.InputTag("slimmedJetsSmeared"), 
                               AK4PuppiJetSmearUpSrc       = cms.InputTag("slimmedJetsSmearedUp"), 
                               AK4PuppiJetSmearDownSrc       = cms.InputTag("slimmedJetsSmearedDown"),
@@ -344,7 +337,7 @@ process.Ana = cms.EDAnalyzer('HccAna',
                               skimLooseLeptons = cms.untracked.int32(0),              
                               skimTightLeptons = cms.untracked.int32(0),              
                               #bestCandMela = cms.untracked.bool(False),
-                              year = cms.untracked.int32(2024),####for year put 2016,2017, or 2018 to select correct setting
+                              year = cms.untracked.int32(2023),####for year put 2016,2017, or 2018 to select correct setting
                               isCode4l = cms.untracked.bool(True),
                               JECUncFileAK4Src = cms.string("Summer23Prompt23_V1_MC_UncertaintySources_AK4PFPuppi.txt"),
                               payload = cms.string("AK4PFPuppi"),
