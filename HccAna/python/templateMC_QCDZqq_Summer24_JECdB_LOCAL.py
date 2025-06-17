@@ -16,8 +16,7 @@ process.load("Configuration.StandardSequences.MagneticField_cff")
 process.load("Configuration.Geometry.GeometryRecoDB_cff")
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 process.load('Configuration.StandardSequences.Services_cff')
-#process.GlobalTag.globaltag='102X_upgrade2018_realistic_v15'
-#process.GlobalTag.globaltag='102X_upgrade2018_realistic_v18'
+
 process.GlobalTag.globaltag='140X_mcRun3_2024_realistic_v26' ### comment if you apply JECs
 
 ### uncomment if you apply JECS ###########################
@@ -341,7 +340,7 @@ process.Ana = cms.EDAnalyzer('HccAna',
                               skimLooseLeptons = cms.untracked.int32(0),              
                               skimTightLeptons = cms.untracked.int32(0),              
                               #bestCandMela = cms.untracked.bool(False),
-                              year = cms.untracked.int32(2024),####for year put 2016,2017, or 2018 to select correct setting
+                              year = cms.untracked.int32(2023),####for year put 2016,2017, or 2018 to select correct setting
                               isCode4l = cms.untracked.bool(True),
                               #for crab 
                               #JECUncFileAK4Src = cms.string("src/Hcc/HccAna/python/Summer23Prompt23_V1_MC_UncertaintySources_AK4PFPuppi.txt"),
